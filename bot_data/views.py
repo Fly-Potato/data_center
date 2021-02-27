@@ -7,9 +7,3 @@ def index():
     pass
 
 
-class Material(View):
-    def get(self, request: HttpRequest):
-        pass
-
-    def post(self, request: HttpRequest):
-        pass
