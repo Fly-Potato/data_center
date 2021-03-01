@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bot_data',
-    'account'
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +123,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR.joinpath('static')]
+STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
+
+AUTH_USER_MODEL = 'account.User'
+LOGIN_REDIRECT_URL = '/'  # 指定如果没有next时，登录后的跳转url
