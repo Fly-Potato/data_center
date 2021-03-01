@@ -1,7 +1,8 @@
-from django.urls import path
-from .laisha2 import Material
+from django.urls import path, include
+from .laisha2 import urls as laisha2_url
 from .views import index
 
 urlpatterns = [
-    path('laisha2/material/', Material.as_view())
+    path('', index),
+    path('laisha2/', include(laisha2_url))
 ]

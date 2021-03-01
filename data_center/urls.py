@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
 import bot_data.urls
 import api.urls
 
+
+def index(request):
+    return redirect('/botdata/')
+
+
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    path('botdata/', include(bot_data)),  # 机器人数据
+    path('admin/', admin.site.urls),
+    path('', index),
+    path('botdata/', include(bot_data.urls)),  # 机器人数据
     path('api/', include(api.urls)),  # API接口
 ]

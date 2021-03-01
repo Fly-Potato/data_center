@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .laisha2.models import Material
 
-# Register your models here.
+
+@admin.register(Material)
+class MaterialAdmin(admin.ModelAdmin):
+    list_display = ('name', 'level', 'attribute', 'type')
