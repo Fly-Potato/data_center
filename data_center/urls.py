@@ -25,7 +25,7 @@ def index(request):
 
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', index),
     path('botdata/', include(bot_data.urls)),  # 机器人数据
     path('api/', include(api.urls)),  # API接口
