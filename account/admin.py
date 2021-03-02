@@ -1,16 +1,17 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import User
-from django.utils.translation import gettext, gettext_lazy as _
+from django.utils.translation import gettext_lazy
 
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
+    # 修改页面的显示字段
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (_('Personal info'), {'fields': ('nickname', 'email')}),
-        (_('Permissions'), {
+        (gettext_lazy('Personal info'), {'fields': ('nickname', 'email')}),
+        (gettext_lazy('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
         }),
-        (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+        (gettext_lazy('Important dates'), {'fields': ('last_login', 'date_joined')}),
     )
