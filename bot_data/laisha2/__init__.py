@@ -5,6 +5,8 @@ from django.views import View
 from django.http import Http404, HttpRequest, HttpResponse, JsonResponse
 import json
 from .models import Material as MaterialModel
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import method_decorator
 
 
 # 素材
@@ -12,6 +14,7 @@ class Material(View):
     def get(self, request: HttpRequest):
         return HttpResponse('get')
 
+    @method_decorator(login_required)
     def post(self, request: HttpRequest):
 
         data = json.loads(request.body)
