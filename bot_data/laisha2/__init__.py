@@ -7,11 +7,20 @@ import json
 from .models import Material as MaterialModel
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import method_decorator
+from django.forms import model_to_dict
 
 
 # 素材
 class Material(View):
     def get(self, request: HttpRequest):
+        name = request.GET.get('name')
+        if name:
+            materials = MaterialModel.objects.filter(name__contains=name)
+            if materials:
+                for material in materials:
+                    print(model_to_dict(material))
+            else:
+                return JsonResponse(dict(code=0, info='未查找到相关材料！'))
         return HttpResponse('get')
 
     @method_decorator(login_required)
