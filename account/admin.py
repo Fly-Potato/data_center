@@ -6,6 +6,8 @@ from django.utils.translation import gettext_lazy
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
+    # 列表显示字段
+    list_display = ('username', 'email', 'nickname', 'is_staff')
     # 修改页面的显示字段
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
