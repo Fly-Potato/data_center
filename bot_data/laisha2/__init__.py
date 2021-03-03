@@ -67,5 +67,5 @@ class Material(View):
                             continue
                     else:
                         print(info_list)
-            res = dict(code=1, info='KeyError')
+            res = dict(code=1, info='完成！')
         return JsonResponse(res)
