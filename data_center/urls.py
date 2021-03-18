@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.shortcuts import redirect
 import bot_data.urls
 import api.urls
+from account.views import login
 
 
 def index(request):
@@ -29,4 +30,5 @@ urlpatterns = [
     path('', index),
     path('botdata/', include(bot_data.urls)),  # 机器人数据
     path('api/', include(api.urls)),  # API接口
+    path('login/', login)
 ]
