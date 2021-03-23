@@ -128,3 +128,4 @@ STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
 
 AUTH_USER_MODEL = 'account.User'
 LOGIN_REDIRECT_URL = '/'  # 指定如果没有next时，登录后的跳转url
+reCAPTCHA = ''  # 填写reCAPTCHA的网站密匙
